@@ -108,7 +108,7 @@ int LoRaClass::begin(long frequency)
   }
 
   // start SPI
-  _spi->begin(14,12,13,15);
+  _spi->begin();
 
   // check version
   uint8_t version = readRegister(REG_VERSION);
