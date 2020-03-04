@@ -12,6 +12,12 @@ filesystem:
   - fs
 
 config_schema:
+  - ["spi.enable", true]
+  - ["spi.miso_gpio", 12]
+  - ["spi.mosi_gpio", 13]
+  - ["spi.sclk_gpio", 14]
+  - ["spi.cs0_gpio", 15]
+  - ["spi.unit_no", 2]
 
 libs:
   - origin: https://github.com/saikiran235/arduino-compat
