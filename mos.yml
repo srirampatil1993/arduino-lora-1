@@ -1,0 +1,27 @@
+author: Delta-things
+type: lib
+description: Mongoos library for Lora1276, for Arduino Librar by NiceRF
+version: 1.0
+
+sources:
+  - src
+includes:
+  - include
+
+filesystem:
+  - fs
+
+config_schema:
+
+libs:
+  - origin: https://github.com/saikiran235/arduino-compat
+#  - origin: https://github.com/mongoose-os-libs/arduino-compat
+  - origin: https://github.com/mongoose-os-libs/arduino-spi
+
+
+tags:
+  - c
+  - arduino
+  - core
+
+manifest_version: 2017-09-29
