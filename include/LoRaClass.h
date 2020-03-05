@@ -4,7 +4,7 @@
 #ifndef LORA_H
 #define LORA_H
 
-#include "Arduino.h"
+#include <Arduino.h>
 #include <SPI.h>
 #include "Stream.h"
 #include"SysCall.h"
