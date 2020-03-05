@@ -334,7 +334,7 @@ void LoRaClass::onReceive(void(*callback)(int))
     SPI.usingInterrupt(digitalPinToInterrupt(_dio0));
 #endif
    // attachInterrupt(digitalPinToInterrupt(_dio0), LoRaClass::onDio0Rise, RISING);
-    mgos_gpio_set_int_handler(_dio0, MGOS_GPIO_INT_EDGE_POS, (mgos_gpio_int_handler_f)LoRaClass::onDio0Rise, NULL);
+    mgos_gpio_set_int_handler(_dio0, MGOS_GPIO_INT_LEVEL_HI, (mgos_gpio_int_handler_f)LoRaClass::onDio0Rise, NULL);
   } else {
     //detachInterrupt(digitalPinToInterrupt(_dio0));
     mgos_gpio_remove_int_handler(_dio0, (mgos_gpio_int_handler_f*)LoRaClass::onDio0Rise, NULL);
