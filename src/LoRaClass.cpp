@@ -333,11 +333,11 @@ void LoRaClass::onReceive(void(*callback)(int))
 #ifdef SPI_HAS_NOTUSINGINTERRUPT
     SPI.usingInterrupt(digitalPinToInterrupt(_dio0));
 #endif
-   // attachInterrupt(digitalPinToInterrupt(_dio0), LoRaClass::onDio0Rise, RISING);
-    mgos_gpio_set_int_handler(_dio0, MGOS_GPIO_INT_LEVEL_HI, (mgos_gpio_int_handler_f)LoRaClass::onDio0Rise, NULL);
+   attachInterrupt(digitalPinToInterrupt(_dio0), LoRaClass::onDio0Rise, RISING);
+   // mgos_gpio_set_int_handler(_dio0, MGOS_GPIO_INT_LEVEL_HI, (mgos_gpio_int_handler_f)LoRaClass::onDio0Rise, NULL);
   } else {
-    //detachInterrupt(digitalPinToInterrupt(_dio0));
-    mgos_gpio_remove_int_handler(_dio0, (mgos_gpio_int_handler_f*)LoRaClass::onDio0Rise, NULL);
+    detachInterrupt(digitalPinToInterrupt(_dio0));
+    //mgos_gpio_remove_int_handler(_dio0, (mgos_gpio_int_handler_f*)LoRaClass::onDio0Rise, NULL);
   
 #ifdef SPI_HAS_NOTUSINGINTERRUPT
     SPI.notUsingInterrupt(digitalPinToInterrupt(_dio0));
@@ -621,11 +621,11 @@ uint8_t LoRaClass::singleTransfer(uint8_t address, uint8_t value)
   return response;
 }
 
-void LoRaClass::onDio0Rise(int pin, void* arg)
+void LoRaClass::onDio0Rise()//(int pin, void* arg)
 {
   LoRa.handleDio0Rise();
-  (void) pin;
-  (void) arg;
+  //(void) pin;
+  //(void) arg;
 }
 bool LoRaClass::receive_lora_packet(char *rx_packet_buffer)
 {
