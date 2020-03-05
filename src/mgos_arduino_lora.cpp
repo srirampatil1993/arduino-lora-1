@@ -79,15 +79,15 @@ void mgos_send_lora(LoRaClass* lora, char* tx_buf)
 void mgos_lora_end(LoRaClass* lora)
 {
 	if (lora == nullptr)
-        return false;
-    return LoRaClass->end();
+        return;
+     lora->end();
 }
 
 int mgos_lora_rssi(LoRaClass* lora)
 {
     if (lora == nullptr)
         return false;
-    return LoRaClass->packetRssi();
+    return lora->packetRssi();
 }
 
 
