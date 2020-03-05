@@ -656,4 +656,10 @@ void LoRaClass::send_lora_data(char *tx_packet_buffer)
   LoRa.endPacket();
 
 }
+void LoRaClass::register_lora_callback(void (*lora_rx_callback)(int packet_size))
+{
+  Serial.println("\n[LoRa]\t: Registering callback");
+  LoRa.onReceive(lora_rx_callback);
+  LoRa.receive();
+}
  LoRaClass LoRa;

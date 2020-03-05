@@ -236,6 +236,7 @@ public:
   void disableCrc();
   bool receive_lora_packet(char *rx_packet_buffer);
   void send_lora_data(char *tx_packet_buffer);
+  void register_lora_callback(void (*lora_rx_callback)(int packet_size));
 
   // deprecated
   void crc() { enableCrc(); }
