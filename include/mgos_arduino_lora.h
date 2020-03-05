@@ -13,21 +13,15 @@ int mgos_LoRa_begin(LoRaClass* lora,long int  frequency);
 void mgos_LoRa_setpins(LoRaClass* lora, uint8_t NSS,uint8_t RESET, uint8_t DIO0);
 int mgos_LoRa_beginpacket(LoRaClass* lora, int implicitHeader);
 int mgos_LoRa_endpacket(LoRaClass* lora);
-//size_t mgos_LoRa_write(LoRaClass* lora, uint8_t byte);
 size_t mgos_LoRa_write(LoRaClass* lora, const uint8_t *buffer, size_t size);
 int mgos_LoRa_parsepacket(LoRaClass* lora, int size);
 int mgos_LoRa_available(LoRaClass* lora);
 int mgos_LoRa_read(LoRaClass* lora);
 bool mgos_receive_lora(LoRaClass* lora, char* rx_buf);
 void mgos_send_lora(LoRaClass* lora, char* tx_buf);
-/*void mgos_lora_end(LoRaClass* lora);
-
-
+void mgos_lora_end(LoRaClass* lora);
 int mgos_lora_rssi(LoRaClass* lora);
-float mgos_lora_packetsnr(LoRaClass* lora);
-long mgos_lora_packet_frequencyerror(LoRaClass* lora);
-size_t mgos_lora_write(LoRaClass* lora, const uint8_t *buffer, size_t size);
-*/
+
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
